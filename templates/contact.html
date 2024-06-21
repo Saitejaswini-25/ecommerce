@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}contact{% endblock title %}
+{% block content %}
+
+<div class="container" style="max-width: 350px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+
+  {% for message in messages%}
+  <div class = "alert alert-{{messages.tags}} alert-dismissible fade show" role="alert">
+   <strong>{{message}}</strong>
+   <button type="button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "Close"></button>
+  </div>
+  {% endfor %}
+
+
+        <h2 style="text-align: center;">Contact Us</h2>
+        <form action="/contact" method="post">{% csrf_token %}
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 5px;" for="name">Name</label>
+            <input style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" type="text" id="name" name="name" required>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 5px;" for="email">Email</label>
+            <input style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" type="email" id="email" name="email"  required>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 1px;" for="message">Message</label>
+            <textarea style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; height: 70px;" id="message" name="message" required></textarea>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 5px;" for="phone">Phone Number</label>
+            <input style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" type="tel" id="phone" name="phone">
+          </div>
+          <button type="submit" style="width: 85%; padding: 10px; background-color: #4CAF50; color: #fff; border: none; border-radius: 3px; cursor: pointer;">Submit</button>
+        </form>
+      </div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
